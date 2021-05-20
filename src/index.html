@@ -1,28 +1,69 @@
-  
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="index.css" />
-    <script defer src="render.js"></script>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" href="./styles/nav.css">
+    <link rel="stylesheet" type="text/css" href="./styles/folders.css">
+    <link rel="stylesheet" type="text/css" href="./styles/controls.css">
+    <title id='title'>VOFOLD</title>
   </head>
-  <body class="content">
-    <h1>🌻 Screen Recorder 🌻</h1>
+  <body>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="main-container">
+      <!-- NAV ------------------------------------------------------------------------ -->
+      <div class="nav-container">
+        <div class="console-container">
+          <button id="closeBtn" class="closeBtn"></button>
+          <button id="minBtn" class="minBtn"></button>
+          <button id="maxBtn" class="maxBtn"></button>
+        </div>
+        <div class="title-container">
+          <h1 id="titleShown"></h1>
+        </div>
+        <div class="theme-container">
+          <label class="switch">
+            <input unchecked type="checkbox" name="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+    </div>
+    <!-- nav ------------------------------------------------------------------------ -->
+    <!-- CONTROLS ------------------------------------------------------------------------ -->
+    <div class="controls-container">
+      <div class="logo"><img src="./images/logo.svg" alt="lol"/></div>
+      <button id="source" class="consoleBtn">SOURCE</button>
+      <button id="output" class="consoleBtn">OUTPUT</button>
+      <button id="organise" class="consoleBtn">ORGANISE</button>
+      <div class="info-container" >
+          <div class="data-container">
+              <h1 id="photo-count">0</h1>
+              <p>PHOTOS</p>
+          </div>
+          <div class="data-container">
+              <h1 id="folder-count">0</h1>
+              <p>FOLDERS</p>
+          </div>
+      </div>
+    </div>
+    <!-- controls ------------------------------------------------------------------------ -->
+    <!-- FOLDERS ------------------------------------------------------------------------ -->
+    <div class="folder-list-container">
+      <div id="folder-list" class="folder-list">
+      </div>
+    </div>
+    <!-- folders ------------------------------------------------------------------------ -->
 
-    <video></video>
 
-    <button id="startBtn" class="button is-primary">Start</button>
-    <button id="stopBtn" class="button is-warning">Stop</button>
+    
+  </div>
 
-    <hr />
 
-    <button id="videoSelectBtn" class="button is-text">
-      Choose a Video Source
-    </button>
+    <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- You can also require other files to run in this process -->
+    <script src="render.js"></script>
   </body>
 </html>

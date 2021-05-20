@@ -1,0 +1,47 @@
+PROBLEM:
+loading array without output
+
+FIX: 
+load empty and append when OUTPUT SELECTED
+
+//////////////////////////////////////////////////////////////
+
+PROBLEM:
+SORT BUTTON
+
+FIX: 
+REPLACE RENAME BUTTON
+
+//////////////////////////////////////////////////////////////
+
+PROBLEM:
+FOLDER PROCESS
+
+FIX: 
+1. load source
+    - loads images, after images are loaded, create folder objects with the image objects in their images array.
+    Folder:
+        - name (date)
+        - array of image objects
+        - creates folder icons with name and folder size ( images array lenght ).
+    
+2. load output
+    - store output path in variable not in folder object.
+
+3. organise
+    - iterate by folder. ( failure will have certain folders done before failing.)
+    - take each element in the folder. 
+
+
+images array
+    -has name which is date
+creating folders.
+1. pass the images
+2. iterate, check if image name matches folder array name. if yes, append image to folders array.
+    if not, create the folder and put the image inside.
+
+
+
+
+SETTINGS
+date-format,

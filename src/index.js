@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer, remote, dialog, os } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -9,8 +9,9 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 900,
+    minHeight: 600,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -19,9 +20,6 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -49,3 +47,18 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+// SOURCE PATH
+ipcMain.on('open-file-source', async event => {
+  const dir = await dialog.showOpenDialog({ properties: ["openDirectory"] });
+  if (dir) {
+    event.sender.send("selected-dir-source", dir.filePaths[0]);
+  }
+});
+// OUTPUT PATH
+ipcMain.on('open-file-output', async event => {
+  const dir = await dialog.showOpenDialog({ properties: ["openDirectory"] });
+  if (dir) {
+    event.sender.send("selected-dir-output", dir.filePaths[0]);
+  }
+});

@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url(../fonts/Nunito-Thin.ttf);
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+/* CONTROLS */
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 60px);
+    width: 20%;
+    -webkit-user-select: none;
+} 
+
+.logo {
+    margin-top: -10px;
+
+    display: flex;
+    justify-content: center;
+    min-height: 65px;
+    max-height: 75px;
+}
+
+.logo img{
+    min-height: 40px;
+    max-height: 65px;
+}
+
+.consoleBtn {
+    font-family: "Roboto-Regular";
+    font-size: 15px;
+    letter-spacing: 10px;
+
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2%;
+    margin-bottom: 6%;
+
+    color: #d7ebff;
+    background: #8199B1;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.15);
+    border: none;
+}
+#source {
+    margin-top: 15%;
+}
+
+
+.consoleBtn:hover {
+    color: #d7ebff;
+    background: #90a7be;
+}
+
+.consoleBtn:focus {
+    color: #d7ebff;
+    background: #90a7be;
+    box-shadow: none;
+    outline: none;
+}
+
+.info-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    /* margin-top: 15%; */
+    margin-bottom: 4%;
+    border-radius: 5px;
+    color: #d7ebff;
+    background: #8199B1;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.15);
+    /* allow the user to copy the number if needed */
+    -webkit-user-select: text;
+    
+}
+
+.info-container h1 {
+    font-family: "Roboto-Regular";
+    font-weight: 100;
+    font-size: 60px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    text-align: center;
+    
+}
+.info-container p {
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    margin-top: 2%;
+    margin-bottom: 8%;
+
+    letter-spacing: 14px;
+    text-indent: 14px;
+    text-align: center;
+}
+
+/* ////////////////////////////////////////////////////////////////// */

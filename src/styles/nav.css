@@ -1,0 +1,129 @@
+/* ////////////////////////////////////////////////////////////////// */
+/* NAV */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 60px;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.console-container, .title-container, .theme-container {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+.console-container{
+    -webkit-app-region: no-drag;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.console-container button {
+    animation: none;
+    display: flex;
+    margin-left: 10px;
+    border: 5px solid #5E7285;
+    border-radius: 25px;
+    background-color: #5E7285;
+    height: 13px;
+    width: 13px;
+}
+.console-container button:hover {
+    background-color: #8098af;
+    border-color: #8098af;
+}
+.console-container button:focus {
+    outline: 0;
+}
+.title-container {
+    justify-content: center;
+    align-self: center;
+}
+.title-container h1{
+    font-size: 30px;
+    font-family: "Roboto-Regular";
+    /* font-weight: 100; */
+    letter-spacing: 15px;
+    box-shadow: none;
+    /* TITLE HIDDEN. TESTING ASTHETICS */
+    /* display: none; */
+
+}
+.theme-container {
+    justify-content: flex-end;
+    align-self: center;
+    -webkit-app-region: no-drag;
+    margin-right: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4d5d6d;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-image: url('../images/moon.svg');
+    background-position: center;
+    background-size: contain;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #546372;
+}
+
+input:focus + .slider {
+    /* box-shadow: 0 0 4px #fff; */
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-image: url('../images/sun.svg');
+    background-position: center;
+    background-size: contain;
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+/* ////////////////////////////////////////////////////////////////// */

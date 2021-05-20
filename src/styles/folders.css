@@ -1,0 +1,69 @@
+/* ////////////////////////////////////////////////////////////////// */
+/* FOLDER */
+
+.folder-list-container {
+    display: flex;
+    height: calc(100% - 60px);
+    width: 80%;
+    border-radius: 50px 0 0 0;
+    background-image: linear-gradient(160deg, #4F5861,#6484A4);
+    
+    transition: background-image 0.4s ease-in-out;
+}
+
+.folder-list {
+    display: grid ;
+    grid-gap: 5%;
+    grid-auto-flow: row;
+    grid-template-columns: 30% 30% 30%; 
+    grid-template-rows: unset;
+    overflow: scroll;
+    
+    width: 100%;
+    padding: 5% 7% 0 7% ;
+}
+
+.folder-list::-webkit-scrollbar {
+    display: none;
+  }
+/* CSS GRID */
+/* grid is adjusted from the column and row template attribute. set a size for each column you want. 3 columns = set 3 size specifications for each. */
+.folder-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.folder {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.folder img{
+    height: 10%;
+    width: 100%;
+}
+.folder-size{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 25%;
+    padding: 1% 0 1% 0 ;
+    color: #3E4954;
+    background-color: #5E7285;
+    border-radius: 4px;
+}
+.folder-name {
+    position: absolute;
+    bottom: 10%;
+    color: #8199B1;
+}
+
+
+/* ////////////////////////////////////////////////////////////////// */
+
+
