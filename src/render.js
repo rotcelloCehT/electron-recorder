@@ -1,5 +1,5 @@
-const { ipcRenderer, remote } = require('electron')
-var exifr = require('exifr')
+const { ipcRenderer, remote } = require('electron');
+var exifr = require('exifr');
 //require path and fs modules for loading in images into 
 const path = require('path');
 const fs = require('fs');
@@ -7,6 +7,7 @@ const { url } = require('inspector');
 const { cpuUsage } = require('process');
 
 // GLOBALS
+var srcPath; // SOURCE PATH
 var outPath; // OUTPUT PATH
 var imageArray = [];
 var folderArray = [];
@@ -85,7 +86,7 @@ srcButton.addEventListener('click', function (event) {
     ipcRenderer.send('open-file-source')
 });
 ipcRenderer.on('selected-dir-source', function (event, path) {
-  var srcPath = path;
+  srcPath = path;
   //passing sourcePath and callback function
   var dirArray = fs.readdirSync(srcPath);
   folderArray = [];
@@ -135,28 +136,38 @@ ipcRenderer.on('selected-dir-output', function (event, path) {
 // ORGANIZE
 const organiseButton = document.getElementById('organise');
 organiseButton.addEventListener('click', function (event) {
-  for (var folderIndex=0 ; folderIndex < folderArray.length; folderIndex++) {
-    for (var imageIndex=0 ; imageIndex < folderArray[folderIndex].imageArray.length ;  imageIndex++) {
-      var oldPath = folderArray[folderIndex].imageArray[imageIndex].sourcePath;
-      var newPath = outPath + "/" + folderArray[folderIndex].name + "/" + folderArray[folderIndex].imageArray[imageIndex].name;
+  if ( srcPath === undefined){
+    title = 'Source Needed';
+    document.getElementById('titleShown').innerHTML = title;
+  }
+  else if ( outPath === undefined) {
+    title = 'Output Needed';
+    document.getElementById('titleShown').innerHTML = title;
+  }
+  else {
+    for (var folderIndex=0 ; folderIndex < folderArray.length; folderIndex++) {
+      for (var imageIndex=0 ; imageIndex < folderArray[folderIndex].imageArray.length ;  imageIndex++) {
+        var oldPath = folderArray[folderIndex].imageArray[imageIndex].sourcePath;
+        var newPath = outPath + "/" + folderArray[folderIndex].name + "/" + folderArray[folderIndex].imageArray[imageIndex].name;
 
-      if (!fs.existsSync(outPath + "/" + folderArray[folderIndex].name)){
-        fs.mkdirSync(outPath + "/" + folderArray[folderIndex].name);
+        if (!fs.existsSync(outPath + "/" + folderArray[folderIndex].name)){
+          fs.mkdirSync(outPath + "/" + folderArray[folderIndex].name);
+        }
+
+        fs.copyFile(oldPath, newPath, function (err) {
+          if (err) throw err
+        });
       }
-
-      fs.copyFile(oldPath, newPath, function (err) {
-        if (err) throw err
-      });
     };
-  };
 
-  console.log('File have been organised!')
-  const folderList = document.getElementById("folder-list");
-  folderList.innerHTML = "";
-  // NOTIFICAITON: 
-  const myNotification = new Notification('Organised!', {
-    body: 'Photos were succesfully organised'
-  });
+    console.log('File have been organised!')
+    const folderList = document.getElementById("folder-list");
+    folderList.innerHTML = "";
+    // NOTIFICAITON: 
+    const myNotification = new Notification('Organised!', {
+      body: 'Photos were succesfully organised'
+    });
+  }
 });
 
 
