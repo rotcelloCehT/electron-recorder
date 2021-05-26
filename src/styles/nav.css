@@ -30,6 +30,7 @@
     background-color: #5E7285;
     height: 13px;
     width: 13px;
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.15);
 }
 .console-container button:hover {
     background-color: #8098af;
@@ -47,7 +48,6 @@
     font-family: "Roboto-Regular";
     /* font-weight: 100; */
     letter-spacing: 15px;
-    box-shadow: none;
     /* TITLE HIDDEN. TESTING ASTHETICS */
     /* display: none; */
 
@@ -83,6 +83,7 @@
     right: 0;
     bottom: 0;
     background-color: #4d5d6d;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.15);
     -webkit-transition: .2s;
     transition: .2s;
 }
@@ -102,7 +103,7 @@
 }
 
 input:checked + .slider {
-    background-color: #546372;
+    background-color: #5E7285;
 }
 
 input:focus + .slider {

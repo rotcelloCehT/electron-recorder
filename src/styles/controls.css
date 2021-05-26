@@ -19,17 +19,18 @@
 } 
 
 .logo {
-    margin-top: -10px;
 
     display: flex;
     justify-content: center;
-    min-height: 65px;
-    max-height: 75px;
+    /* border-radius: 50%; */
+    /* border: 1px solid black; */
+    /* box-shadow: 0px 0px 100px #8199B1; */
 }
 
 .logo img{
-    min-height: 40px;
-    max-height: 65px;
+    /* min-height: 50px;
+    max-height: 90px; */
+    width: 7.5vw;
 }
 
 .consoleBtn {

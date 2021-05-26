@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Nutino-Bold';
+    src: url(../fonts/Nunito-Bold.ttf);
+}
+
+
 /* ////////////////////////////////////////////////////////////////// */
 /* FOLDER */
 
@@ -40,6 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Nutino-Bold';
 }
 .folder img{
     height: 10%;
